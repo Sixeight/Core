@@ -67,6 +67,8 @@ module Pod
       new :osx
     end
 
+    alias_method :macos, :osx
+
     # Convenience method to initialize a tvOS platform.
     #
     # @return [Platform] a tvOS platform.
@@ -224,7 +226,7 @@ module Pod
     def self.string_name(symbolic_name)
       case symbolic_name
       when :ios then 'iOS'
-      when :osx then 'OS X'
+      when :osx then 'macOS'
       when :watchos then 'watchOS'
       when :tvos then 'tvOS'
       else symbolic_name.to_s

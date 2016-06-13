@@ -513,6 +513,7 @@ module Pod
       #
       def platform=(args)
         name, deployment_target = args
+        name = :osx if name.to_s == 'macos'
         attributes_hash['platforms'] = if name
                                          { name.to_s => deployment_target }
                                        else
@@ -1363,6 +1364,8 @@ module Pod
       def osx
         PlatformProxy.new(self, :osx)
       end
+
+      alias_method :macos, :osx
 
       # Provides support for specifying tvOS attributes.
       #
